@@ -6,7 +6,7 @@ var header = require('../roland-header.js');
 ; Author: Jonathan Roland
 ; Date:   17 August 2020
 ; Modified By:
-; Description: A program demonstrating an understanding of function interfaces in Javascript
+; Description: A program demonstrating an understanding of prototypes in the context of object cloning.
 ;===========================================
 
 /*
