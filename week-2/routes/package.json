@@ -1,8 +1,0 @@
-{
-    "name": "routes",
-    "author": "Jonathan Roland",
-    "private": true,
-    "dependencies": {
-        "express": "^4.17.1"
-    }
-}
