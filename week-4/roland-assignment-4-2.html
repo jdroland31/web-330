@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Assignment 4.2</title>
+
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="my-button" >Click Here</button>
+    <script>
+      console.log("hello");
+      $('#my-button').on('click',function(){
+        $.get(' https://dog.ceo/api/breeds/image/random',function(data){
+            console.log(data);
+        });
+      });
+    </script>
+  </body>
+</html>
