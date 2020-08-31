@@ -10,7 +10,7 @@
   <body>
     <button id="my-button" >Click Here</button>
     <script>
-      console.log("hello");
+      //When #my-button is clicked, a GET request is sent to the below URL and the returned data object is logged to the console.
       $('#my-button').on('click',function(){
         $.get(' https://dog.ceo/api/breeds/image/random',function(data){
             console.log(data);
