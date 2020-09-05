@@ -6,6 +6,7 @@
 
     <!-- jquery Reference Library -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!-- stylesheet -->
     <link rel="stylesheet" type="text/css" href="roland-5-2-style.css"></link>
   </head>
   <body>
@@ -19,14 +20,18 @@
       <hr>
     <script>
       $(function() {
+        //define guitar object and display function
         var guitar =  {    
             type: "electric",    
             manufacturer: "Ibanez",    
-            display: function() {    
-                $("#proxyExampleOne").html("");    
+            display: function() {  
+                //clear the span  
+                $("#proxyExampleOne").html("");
+                //append the values in html    
                 $("#proxyExampleOne").append("<br />Type: " + this.type + "<br />" + "Manufacturer: " + this.manufacturer);    
             } 
         }; 
+        //register click event on button 1
         $("#btnExample1").click($.proxy(guitar, "display"));
       });
     </script>
