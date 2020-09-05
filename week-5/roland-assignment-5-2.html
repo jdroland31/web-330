@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Jonathan Roland | Exercise 5.2 - The Proxy Pattern</title>
+
+    <!-- jquery Reference Library -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" type="text/css" href="roland-5-2-style.css"></link>
+  </head>
+  <body>
+      <!-- Example 1 -->
+      <h1>Jonathan Roland | Exercise 5.2 - The Proxy Pattern</h1>
+      <hr> 
+      <h2>Proxy Example 1 - Guitar Info</h2>
+      <button id="btnExample1">Run test</button>
+      <br />
+      <span id="proxyExampleOne"></span>
+      <hr>
+    <script>
+      $(function() {
+        var guitar =  {    
+            type: "electric",    
+            manufacturer: "Ibanez",    
+            display: function() {    
+                $("#proxyExampleOne").html("");    
+                $("#proxyExampleOne").append("<br />Type: " + this.type + "<br />" + "Manufacturer: " + this.manufacturer);    
+            } 
+        }; 
+        $("#btnExample1").click($.proxy(guitar, "display"));
+      });
+    </script>
+  </body>
+</html>
