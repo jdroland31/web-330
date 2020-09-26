@@ -47,12 +47,15 @@
 
         ko.bindingHandlers.myCustomBinding = {
             update: function(element,valueAccessor){
+                //the observable value of myEntry must be unwrapped
                 var value = ko.utils.unwrapObservable(valueAccessor());
                 // console.log(value);
+                // show the submit button if text in entered.
                 if(value.length>0){
                     $("#submitBtn").prop('hidden',false);
                     $("#explanationText").text("When the input field has a value the submit button appears. Try deleting your input.");
                 }
+                //otherwise hide the submit button and change the message.
                 else{
                     $("#submitBtn").prop('hidden',true);
                     $("#explanationText").prop("When the input field DOES NOT a value the submit button disappears.");
