@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Exercise 9.2</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+    <!-- JavaScript Libraries -->
+    <!-- Backbone JS -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+  
+      <div role="main" class="container">
+        <br />
+        <br />
+        <h1>Exercise 9.2</h1>
+        <p class="lead">Employees</p>
+  
+        <div class="row">
+          <div class="col-sm-9">
+            <table class="table table-dark table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Salary</th>
+                </tr>
+              </thead>
+              <tbody id="table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  
+      <script>
+        function Employee(id, name, salary) {
+          this.id = id;
+          this.name = name;
+          this.salary = salary;
+        }
+  
+        var EmployeeModel = Backbone.Model.extend({
+          defaults: {
+            id: "",
+            name: "",
+            salary: 0
+          }
+        });
+  
+        var EmployeeCollection = Backbone.Collection.extend({
+          model: EmployeeModel
+        });
+  
+        var Employees = new EmployeeCollection();
+        Employees.add(new Employee("42141235", "Bob Smith", 65000));
+        Employees.add(new Employee("53461643", "Cindy Thompson", 60000));
+        Employees.add(new Employee("65634500", "Wade McPherson", 55000));
+        Employees.add(new Employee("36206774", "Julie Gray", 75000));
+        Employees.add(new Employee("52340095", "Robert Freeman", 70000));
+  
+        Employees.each(function(employee) {
+          $("#table-body").append(
+            "<tr>" +
+              "<td>" +
+              employee.get("id") +
+              "</td>" +
+              "<td>" +
+              employee.get("name") +
+              "</td>" +
+              "<td>" +
+              employee.get("salary") +
+              "</td>" +
+              "</tr>"
+          );
+        });
+      </script>
+  </body>
+</html>
